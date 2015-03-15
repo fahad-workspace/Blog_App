@@ -1,0 +1,22 @@
+p
+  strong Title: 
+  = @article.title
+p
+  strong Text: 
+  = @article.text
+h2 Comments
+- @article.comments.each do |comment|
+  strong Commenter: 
+  = comment.commenter  
+  br/
+  strong Comment: 
+  = comment.body
+  br/
+  = link_to 'Destroy Comment', [comment.article, comment], method: :delete, data: { confirm: 'Are you sure?' }
+  br/
+  br/
+h2 Add a comment:
+= render 'comments/form'
+= link_to 'Edit Article', edit_article_path(@article)
+= " "
+= link_to 'Back to Articles', articles_path
