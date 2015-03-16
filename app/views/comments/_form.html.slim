@@ -1,3 +1,4 @@
+= link_to 'Home', controller: 'welcome'
 = form_for([@article, @article.comments.build]) do |f|
   p
     = f.label :commenter
