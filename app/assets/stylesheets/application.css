@@ -6578,6 +6578,7 @@ button.close {
     display: none !important;
   }
 }
+
 table, td, th {
     border: 1px solid green;
 }

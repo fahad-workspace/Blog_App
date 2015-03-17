@@ -5,17 +5,20 @@ h1 Listing Articles
   h3 Oops! No Articles :-(
   h5 Click on 'New Article' link below to add some!
 - if @articles.size > 0
-  table
+  table class="table table-bordered"
     tr
       th Title
       th Text
+      th Show
+      th Edit
+      th Destroy
       br/
     - @articles.each do |article|
       tr
         td= article.title
         td= article.text
-        td= link_to 'Show', article_path(article)
-        td= link_to 'Edit', edit_article_path(article)
-        td= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
+        td= link_to 'Click', article_path(article)
+        td= link_to 'Click', edit_article_path(article)
+        td= link_to 'Click', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
 br/
 = link_to 'New Article', new_article_path
