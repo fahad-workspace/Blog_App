@@ -1,5 +1,5 @@
 = link_to 'Home', controller: 'welcome'
-h1 Editing article
+h1 Editing Article
 = form_for :article, url: article_path(@article), method: :patch do |f|
   p
     = f.label :title

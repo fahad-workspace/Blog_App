@@ -6585,4 +6585,26 @@ table, td, th {
 th {
     background-color: green;
     color: white;
+    text-align: center;
+}
+
+html, body {
+    height: 100%;
+    text-align: center;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+    background-color: #CCFF99;
+}
+
+body * {
+    margin: 3px;
+    padding: 3px;
 }
