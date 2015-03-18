@@ -1,4 +1,5 @@
 doctype html
+= javascript_include_tag :defaults
 html
   head
     title Demo
@@ -7,3 +8,7 @@ html
     = csrf_meta_tags
   body
     = yield
+    p class="notice"
+      - notice
+    p class="alert"
+      - alert
