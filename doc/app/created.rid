@@ -1,12 +1,13 @@
-Sun, 15 Mar 2015 14:27:43 +0530
-README.rdoc	Sun, 15 Mar 2015 12:14:45 +0530
-app/controllers/application_controller.rb	Sun, 15 Mar 2015 12:14:45 +0530
-app/controllers/articles_controller.rb	Sun, 15 Mar 2015 14:08:57 +0530
-app/controllers/comments_controller.rb	Sun, 15 Mar 2015 12:14:45 +0530
-app/controllers/welcome_controller.rb	Sun, 15 Mar 2015 12:14:45 +0530
-app/helpers/application_helper.rb	Sun, 15 Mar 2015 12:14:45 +0530
-app/helpers/articles_helper.rb	Sun, 15 Mar 2015 12:14:45 +0530
-app/helpers/comments_helper.rb	Sun, 15 Mar 2015 12:14:45 +0530
-app/helpers/welcome_helper.rb	Sun, 15 Mar 2015 12:14:45 +0530
-app/models/article.rb	Sun, 15 Mar 2015 12:14:45 +0530
-app/models/comment.rb	Sun, 15 Mar 2015 12:14:45 +0530
+Wed, 18 Mar 2015 15:36:16 +0530
+README.rdoc	Wed, 18 Mar 2015 15:19:57 +0530
+app/controllers/application_controller.rb	Wed, 18 Mar 2015 15:19:57 +0530
+app/controllers/articles_controller.rb	Wed, 18 Mar 2015 15:32:19 +0530
+app/controllers/comments_controller.rb	Wed, 18 Mar 2015 15:19:57 +0530
+app/controllers/welcome_controller.rb	Wed, 18 Mar 2015 15:19:57 +0530
+app/helpers/application_helper.rb	Wed, 18 Mar 2015 15:19:57 +0530
+app/helpers/articles_helper.rb	Wed, 18 Mar 2015 15:19:57 +0530
+app/helpers/comments_helper.rb	Wed, 18 Mar 2015 15:19:57 +0530
+app/helpers/welcome_helper.rb	Wed, 18 Mar 2015 15:19:57 +0530
+app/models/article.rb	Wed, 18 Mar 2015 15:19:57 +0530
+app/models/comment.rb	Wed, 18 Mar 2015 15:19:57 +0530
+app/models/user.rb	Wed, 18 Mar 2015 15:19:57 +0530

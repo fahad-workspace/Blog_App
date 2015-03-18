@@ -137,7 +137,7 @@
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 25</span>
+            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 28</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@article</span> = <span class="ruby-constant">Article</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">article_params</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@article</span>.<span class="ruby-identifier">save</span>
@@ -175,7 +175,7 @@
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 34</span>
+            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@article</span> = <span class="ruby-constant">Article</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@article</span>.<span class="ruby-identifier">destroy</span>
@@ -210,7 +210,7 @@
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 12</span>
+            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
   <span class="ruby-ivar">@article</span> = <span class="ruby-constant">Article</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -243,9 +243,10 @@
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 8</span>
+            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
   <span class="ruby-ivar">@articles</span> = <span class="ruby-constant">Article</span>.<span class="ruby-identifier">all</span>
+  <span class="ruby-ivar">@users</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -270,13 +271,14 @@
 
         <div class="method-description">
           
-          
+          <p>http_basic_authenticate_with name: “fahad”, password: “password”, except:
+[:index, :show]</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 5</span>
+            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -308,7 +310,7 @@
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 40</span>
+            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 43</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-ivar">@article</span> = <span class="ruby-constant">Article</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -341,7 +343,7 @@
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 16</span>
+            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-ivar">@article</span> = <span class="ruby-constant">Article</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@article</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">article_params</span>)
