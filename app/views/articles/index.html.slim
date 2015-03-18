@@ -20,7 +20,6 @@ h1 Listing Articles
         td= link_to 'Click', article_path(article)
         td= link_to 'Click', edit_article_path(article)
         td= link_to 'Click', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
-br/
 = link_to 'New Article', new_article_path
 br/
 = link_to "Sign out", destroy_user_session_path, :method => :delete
