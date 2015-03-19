@@ -1,6 +1,6 @@
-= link_to 'Home', controller: 'welcome'
-br/
-h1 Listing Articles
+h1 Welcome! 
+h5= current_user.email
+h3 Listing Articles
 - if @articles.size == 0
   h3 Oops! No Articles :-(
   h5 Click on 'New Article' link below to add some!
@@ -20,6 +20,3 @@ h1 Listing Articles
         td= link_to 'Click', article_path(article)
         td= link_to 'Click', edit_article_path(article)
         td= link_to 'Click', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
-= link_to 'New Article', new_article_path
-br/
-= link_to "Sign out", destroy_user_session_path, :method => :delete

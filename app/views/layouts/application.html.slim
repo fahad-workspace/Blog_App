@@ -6,6 +6,31 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
+    nav class="navbar navbar-inverse"
+      div class="container-fluid"
+        div class="navbar-header"
+          button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"
+            span class="icon-bar"
+            span class="icon-bar"
+            span class="icon-bar"                        
+          a class="navbar-brand" href="/welcome/index"
+            = "MyBlogSite"
+        div class="collapse navbar-collapse" id="myNavbar"
+          ul class="nav navbar-nav"
+            li class="active"
+              = link_to "Home", controller: '/welcome'
+          - if !(user_signed_in?) then
+            ul class="nav navbar-nav navbar-right"
+              li
+                = link_to " Sign Up ", controller: '/devise/registrations', action: 'new'
+              li
+                = link_to " Login ", controller: '/devise/sessions', action: 'new'
+          - if (user_signed_in?) then
+            ul class="nav navbar-nav navbar-right"
+              li
+                = link_to " New Article ", controller: '/articles', action: 'new'
+              li
+                = link_to " Logout ", destroy_user_session_path, :method => :delete
     = yield
     p class="notice"
       - notice

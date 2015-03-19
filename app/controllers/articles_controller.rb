@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
   
   def index
     @articles = Article.all
-    @users = User.all
+    #@users = User.all
   end
   
   def edit
