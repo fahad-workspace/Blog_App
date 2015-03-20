@@ -1,12 +1,13 @@
 doctype html
 html
   head
-    title Demo
+    title MyBlogSite
+    = favicon_link_tag 'blog.ico'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    nav class="navbar navbar-inverse"
+    nav class="navbar navbar-inverse navbar-fixed-top"
       div class="container-fluid"
         div class="navbar-header"
           button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"
@@ -36,3 +37,6 @@ html
       - notice
     p class="alert"
       - alert
+    nav class="navbar navbar-inverse navbar-fixed-bottom"
+      p class="copyright container-fluid"
+        = "\u00A9 Fahad Sarwar"

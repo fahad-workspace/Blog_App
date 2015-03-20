@@ -9,10 +9,19 @@ th {
 }
 
 html, body {
-    height: 100%;
     text-align: center;
 }
 
 .navbar {
     border-radius: 0px;
+}
+
+body {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.copyright {
+    color: #9d9d9d;
+    padding-top: 15px;
 }
