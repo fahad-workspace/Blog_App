@@ -42,16 +42,16 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: '127.0.0.1', port: 9292 }
   
   # Don't send emails in development
-  config.action_mailer.perform_deliveries = false
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   # config.action_mailer.raise_delivery_errors = true
   # config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-      :address              => "inchnzm03.tcs.com",
-      :port                 => 465,
-      :user_name            => 'fahad.sarwar',
-      :password             => '<password>',
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :user_name            => '<user_id>',
+      :password             => '<password>,
       :authentication       => 'plain',
       :enable_starttls_auto => true  }
 
