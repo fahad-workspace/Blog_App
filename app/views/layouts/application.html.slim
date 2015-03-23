@@ -20,23 +20,31 @@ html
           ul class="nav navbar-nav"
             li class="active"
               = link_to "Home", controller: '/welcome'
-          - if !(user_signed_in?) then
+          - if !(user_signed_in?)
             ul class="nav navbar-nav navbar-right"
               li
-                = link_to " Sign Up ", {controller: '/devise/registrations', action: 'new'}, class: "glyphicon glyphicon-user"
+                = link_to " Sign-Up ", {controller: '/devise/registrations', action: 'new'}, class: "glyphicon glyphicon-user"
               li
                 = link_to " Login ", {controller: '/devise/sessions', action: 'new'}, class: "glyphicon glyphicon-log-in"
-          - if (user_signed_in?) then
+          - if (user_signed_in?)
             ul class="nav navbar-nav navbar-right"
               li
                 = link_to " New-Article ", {controller: '/articles', action: 'new'}, class: "glyphicon glyphicon-comment"
               li
                 = link_to " Logout ", destroy_user_session_path, :method => :delete, class: "glyphicon glyphicon-log-in"
-    = yield
-    p class="notice"
+    div class="container"
+      - if user_signed_in?
+        = render 'articles/overlay_top'
+        div class="overlay-body"
+          = yield
+        = render 'articles/overlay_bottom'
+      - if !(user_signed_in?)
+        div class="overlay-body overlay-body-unsigned"
+          = yield
+    p class="notice hidden"
       - notice
-    p class="alert"
+    p class="alert hidden"
       - alert
     nav class="navbar navbar-inverse navbar-fixed-bottom"
-      p class="copyright container-fluid"
+      p class="copyright container-fluid text-right"
         = "\u00A9 Fahad Sarwar"

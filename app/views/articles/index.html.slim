@@ -1,7 +1,4 @@
-h1 Welcome! 
-h5
-  i= current_user.email
-h3 Listing Articles
+h3 class="text-center" Listing Articles
 - if @articles.size == 0
   h3 Oops! No Articles :-(
   h5 Click on 'New Article' link to add some!
@@ -10,33 +7,15 @@ h3 Listing Articles
     tr
       th Title
       th Text
-      th Show
-      th Edit
-      th Destroy
       br/
     - @articles.each do |article|
       tr
         td= article.title
-        td= article.text
-        td= link_to 'Click', article_path(article)
-        - if article.user_id == current_user.id
-          td= link_to 'Click', edit_article_path(article)
-          td= link_to 'Click', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
-        - if article.user_id != current_user.id
-          td
-          td
-= link_to " New-Article ", {controller: '/articles', action: 'new'}
-br/
-strong Last login: 
-- if (((Time.now.utc - current_user.last_sign_in_at)/ 1.minute).round) < 60
-  = (((Time.now.utc - current_user.last_sign_in_at)/ 1.minute).round)
-  = " minutes ago"
-- if (((Time.now.utc - current_user.last_sign_in_at)/ 1.minute).round) > 59
-  = (((Time.now.utc - current_user.last_sign_in_at)/ 1.hour).round)
-  = " hours ago"
-- if (((Time.now.utc - current_user.last_sign_in_at)/ 1.minute).round) > 1439
-  = (((Time.now.utc - current_user.last_sign_in_at)/ 1.day).round)
-  = " days ago"
-br/
-strong Current IP: 
-= Socket.ip_address_list.detect(&:ipv4_private?).try(:ip_address)
+        td
+          = article.text
+          br/
+          - if article.user_id == current_user.id
+            = link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn pull-right"
+            = link_to 'Edit', edit_article_path(article), class: "btn pull-right"
+          = link_to 'View', article_path(article), class: "btn inline pull-left"
+  = link_to "New Article", {controller: '/articles', action: 'new'}, class: "btn center-block"
