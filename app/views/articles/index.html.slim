@@ -24,3 +24,18 @@ h3 Listing Articles
         - if article.user_id != current_user.id
           td
           td
+= link_to " New-Article ", {controller: '/articles', action: 'new'}
+br/
+strong Last login: 
+- if (((Time.now.utc - current_user.last_sign_in_at)/ 1.minute).round) < 60
+  = (((Time.now.utc - current_user.last_sign_in_at)/ 1.minute).round)
+  = " minutes ago"
+- if (((Time.now.utc - current_user.last_sign_in_at)/ 1.minute).round) > 59
+  = (((Time.now.utc - current_user.last_sign_in_at)/ 1.hour).round)
+  = " hours ago"
+- if (((Time.now.utc - current_user.last_sign_in_at)/ 1.minute).round) > 1439
+  = (((Time.now.utc - current_user.last_sign_in_at)/ 1.day).round)
+  = " days ago"
+br/
+strong Current IP: 
+= Socket.ip_address_list.detect(&:ipv4_private?).try(:ip_address)
