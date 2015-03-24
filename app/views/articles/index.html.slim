@@ -18,4 +18,4 @@ h3 class="text-center" Listing Articles
             = link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn pull-right"
             = link_to 'Edit', edit_article_path(article), class: "btn pull-right"
           = link_to 'View', article_path(article), class: "btn inline pull-left"
-  = link_to "New Article", {controller: '/articles', action: 'new'}, class: "btn center-block"
+= link_to "New Article", {controller: '/articles', action: 'new'}, class: "btn center-block"

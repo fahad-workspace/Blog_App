@@ -13,7 +13,8 @@ class ArticlesController < ApplicationController
   end
   
   def edit
-    if current_user.id != params[:id].to_i then
+    @article = Article.find(params[:id])
+    if current_user.id != @article.user_id then
       redirect_to articles_path
     else
       @article = Article.find(params[:id])
@@ -25,6 +26,7 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to @article
     else
+      flash.now[:error] = @article.errors.full_messages[0]
       render 'edit'
     end
   end
@@ -34,15 +36,16 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to @article
     else
+      flash.now[:error] = @article.errors.full_messages[0]
       render 'new'
     end
   end
   
   def destroy
-    if current_user.id != params[:id].to_i then
+    @article = Article.find(params[:id])
+    if @article.user_id != current_user.id then
       redirect_to articles_path
     else
-      @article = Article.find(params[:id])
       @article.destroy
       redirect_to articles_path
     end
