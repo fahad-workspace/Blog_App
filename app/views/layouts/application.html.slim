@@ -37,9 +37,10 @@ html
         = render 'articles/overlay_top'
         div class="overlay-body"
           = yield
-          = content_tag(:div, flash[:error], :id => "flash_error") if flash[:error]
-          = content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice]
-          = content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert]
+          - if !flash.empty?
+            = content_tag(:div, flash[:error], :id => "flash_error") if flash[:error]
+            = content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice]
+            = content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert]
         = render 'articles/overlay_bottom'
       - if !(user_signed_in?)
         div class="overlay-body overlay-body-unsigned"

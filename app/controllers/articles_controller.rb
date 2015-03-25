@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
-
-  before_action :authenticate_user!
-  load_and_authorize_resource
+  
+  before_filter :authenticate_user!, :except => [:show, :index]
+  load_and_authorize_resource :except => [:show, :index]
+  skip_load_resource :only => [:create]
 
   # http_basic_authenticate_with name: "fahad", password: "password", except: [:index, :show]
 

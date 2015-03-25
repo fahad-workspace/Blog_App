@@ -12,13 +12,15 @@ h2 Comments
   strong Comment: 
   = comment.body
   br/
-  - if @article.user_id == current_user.id
-    = link_to 'Destroy Comment', [comment.article, comment], method: :delete, data: { confirm: 'Are you sure?' }
-    br/
+  - if user_signed_in?
+    - if @article.user_id == current_user.id
+      = link_to 'Destroy Comment', [comment.article, comment], method: :delete, data: { confirm: 'Are you sure?' }
+      br/
   br/
 h2 Add a comment:
 = render 'comments/form'
-- if @article.user_id == current_user.id
-  = link_to 'Edit Article', edit_article_path(@article), class: "btn"
-  = " "
+- if user_signed_in?
+  - if @article.user_id == current_user.id
+    = link_to 'Edit Article', edit_article_path(@article), class: "btn"
+    = " "
 = link_to 'Back to Articles', articles_path, class: "btn"
