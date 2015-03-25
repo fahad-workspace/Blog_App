@@ -38,8 +38,10 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  current_ip = (Socket.ip_address_list.detect(&:ipv4_private?).try(:ip_address)).to_s
 
-  config.action_mailer.default_url_options = { host: '127.0.0.1', port: 9292 }
+  config.action_mailer.default_url_options = { host: current_ip, port: 3000 }
   
   # Don't send emails in development
   config.action_mailer.perform_deliveries = true
