@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 
   before_action :authenticate_user!
+  load_and_authorize_resource
 
   # http_basic_authenticate_with name: "fahad", password: "password", except: [:index, :show]
 
@@ -14,11 +15,11 @@ class ArticlesController < ApplicationController
   
   def edit
     @article = Article.find(params[:id])
-    if current_user.id != @article.user_id then
-      redirect_to articles_path
-    else
+  #  if current_user.id != @article.user_id then
+  #    redirect_to articles_path
+  #  else
       @article = Article.find(params[:id])
-    end
+  #  end
   end
   
   def update
@@ -43,12 +44,12 @@ class ArticlesController < ApplicationController
   
   def destroy
     @article = Article.find(params[:id])
-    if @article.user_id != current_user.id then
-      redirect_to articles_path
-    else
+  #  if @article.user_id != current_user.id then
+  #    redirect_to articles_path
+  #  else
       @article.destroy
       redirect_to articles_path
-    end
+  #  end
   end
   
   def show
