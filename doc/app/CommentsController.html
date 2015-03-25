@@ -121,7 +121,8 @@
 
         <div class="method-description">
           
-          
+          <p>http_basic_authenticate_with name: “fahad”, password: “password”, only:
+:destroy</p>
           
           
 
@@ -131,6 +132,7 @@
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@article</span> = <span class="ruby-constant">Article</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:article_id</span>])
   <span class="ruby-ivar">@comment</span> = <span class="ruby-ivar">@article</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">comment_params</span>)
+  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">full_messages</span>[<span class="ruby-value">0</span>]
   <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">article_path</span>(<span class="ruby-ivar">@article</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -162,11 +164,14 @@
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 13</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 14</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@article</span> = <span class="ruby-constant">Article</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:article_id</span>])
   <span class="ruby-ivar">@comment</span> = <span class="ruby-ivar">@article</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-  <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">destroy</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-ivar">@article</span>.<span class="ruby-identifier">user_id</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">destroy</span>
+  <span class="ruby-keyword">end</span>
   <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">article_path</span>(<span class="ruby-ivar">@article</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
