@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  
+
   before_filter :authenticate_user!, :except => [:show, :index]
   load_and_authorize_resource :except => [:show, :index]
   skip_load_resource :only => [:create]
@@ -8,21 +8,21 @@ class ArticlesController < ApplicationController
 
   def new
   end
-  
+
   def index
     @articles = Article.all
     #@users = User.all
   end
-  
+
   def edit
     @article = Article.find(params[:id])
-  #  if current_user.id != @article.user_id then
-  #    redirect_to articles_path
-  #  else
-      @article = Article.find(params[:id])
-  #  end
+    #  if current_user.id != @article.user_id then
+    #    redirect_to articles_path
+    #  else
+    @article = Article.find(params[:id])
+    #  end
   end
-  
+
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
       render 'edit'
     end
   end
-  
+
   def create
     @article = Article.new(article_params)
     if @article.save
@@ -42,21 +42,21 @@ class ArticlesController < ApplicationController
       render 'new'
     end
   end
-  
+
   def destroy
     @article = Article.find(params[:id])
-  #  if @article.user_id != current_user.id then
-  #    redirect_to articles_path
-  #  else
-      @article.destroy
-      redirect_to articles_path
-  #  end
+    #  if @article.user_id != current_user.id then
+    #    redirect_to articles_path
+    #  else
+    @article.destroy
+    redirect_to articles_path
+    #  end
   end
-  
+
   def show
     @article = Article.find(params[:id])
   end
-  
+
   private
   def article_params
     params.require(:article)[:user_id] = current_user.id

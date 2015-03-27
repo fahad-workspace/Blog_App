@@ -11,7 +11,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
@@ -27,7 +27,7 @@ Rails.application.configure do
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
-  
+
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_files = true
   # Don't fallback to assets pipeline if a precompiled asset is missed
@@ -76,11 +76,11 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  
+
   current_ip = (Socket.ip_address_list.detect(&:ipv4_private?).try(:ip_address)).to_s
 
-  config.action_mailer.default_url_options = { host: current_ip, port: 3000 }
-  
+  config.action_mailer.default_url_options = {host: current_ip, port: 3000}
+
   # Don't send emails in development
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
@@ -88,11 +88,11 @@ Rails.application.configure do
   # config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-      :address              => "smtp.gmail.com",
-      :port                 => 587,
-      :user_name            => '<user_id>',
-      :password             => '<password>',
-      :authentication       => 'plain',
-      :enable_starttls_auto => true  }
-  
+      :address => "smtp.gmail.com",
+      :port => 587,
+      :user_name => '<user_id>',
+      :password => '<password>',
+      :authentication => 'plain',
+      :enable_starttls_auto => true}
+
 end

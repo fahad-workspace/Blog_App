@@ -5,7 +5,7 @@ class CreateArticles < ActiveRecord::Migration
       t.text :text
       t.references :user, index: true
       t.timestamps null: false
-    end  
+    end
     add_foreign_key :articles, :users
   end
 end

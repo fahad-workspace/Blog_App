@@ -1,11 +1,11 @@
 table, td, th {
-    border: 1px solid #222;
+  border: 1px solid #222;
 }
 
 th {
-    background-color: #222;
-    color: white;
-    text-align: center;
+  background-color: #222;
+  color: white;
+  text-align: center;
 }
 
 //html, body {
@@ -13,75 +13,75 @@ th {
 //}
 
 .navbar {
-    border-radius: 0px;
+  border-radius: 0px;
 }
 
 body {
-    padding-top: 70px;
-    padding-bottom: 70px;
-    background: image-url("backgrounds.jpeg") no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background: image-url("backgrounds.jpeg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .copyright {
-    color: #9d9d9d;
-    padding-top: 15px;
+  color: #9d9d9d;
+  padding-top: 15px;
 }
 
 .heading {
-    color: white;
-    padding-left: 15px
+  color: white;
+  padding-left: 15px
 }
 
 .overlay-body {
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    background-color:rgba(0, 0, 0, 0.85);
-    z-index:9999;
-    color:white;
-    padding: 15px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  color: white;
+  padding: 15px;
 }
 
 .overlay-body-unsigned {
-    border-radius: 20px;
+  border-radius: 20px;
 }
 
 .overlay {
-    color: #cccccc;
-    background-color:rgba(0, 0, 0, 0.25);
-    padding: 15px;
+  color: #cccccc;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 15px;
 }
 
 .overlay-top {
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
 }
 
 .overlay-bottom {
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 input, button, textarea {
-    color: black;  
-    border: 1px solid transparent;
-    border-radius: 4px;
-    font: inherit;
-    margin-top: 7px;
-    margin-bottom: 7px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+  color: black;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font: inherit;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 input, button {
-    padding: 6px 12px;
+  padding: 6px 12px;
 }
 
 #flash_alert, #flash_error, #flash_notice {
-    color: red;
+  color: red;
 }
