@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  match 'articles/:id/dislike' => "likes#dislike", :via => :post
+  match 'articles/:id/like' => "likes#like", :via => :post
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

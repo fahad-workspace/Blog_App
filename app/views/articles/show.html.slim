@@ -4,13 +4,7 @@ p
 p
   strong Text: 
   = @article.text
-- if @article.likes.find_by_user_id(current_user.id)
-  link_to id="like_button" class="glyphicon glyphicon-thumbs-down" onclick="calledIt(this)"
-- if !(@article.likes.find_by_user_id(current_user.id))
-  link_to id="like_button" class="glyphicon glyphicon-thumbs-up" onclick="calledIt(this)"
-p
-  strong Total likes:
-  = @article.likes.count
+= render 'likes/like'
 h2 Comments
 - @article.comments.each do |comment|
   strong Commenter: 
