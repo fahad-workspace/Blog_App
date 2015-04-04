@@ -1,0 +1,8 @@
+- if user_signed_in?
+  - if @article.likes.find_by_user_id(current_user.id)
+    = link_to " Dislike", dislike_article_path, method: 'patch', remote: 'true', id: "like_button", class: "glyphicon glyphicon-thumbs-down"
+  - if !(@article.likes.find_by_user_id(current_user.id))
+    = link_to " Like", like_article_path, method: 'patch', remote: 'true', id: "like_button", class: "glyphicon glyphicon-thumbs-up"
+p
+  strong Total likes:
+  = @article.likes.count

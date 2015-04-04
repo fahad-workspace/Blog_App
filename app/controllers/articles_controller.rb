@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:show, :index]
-  load_and_authorize_resource :except => [:show, :index]
+  before_filter :authenticate_user!, :except => [:show, :index, :like, :dislike]
+  load_and_authorize_resource :except => [:show, :index, :like, :dislike]
   skip_load_resource :only => [:create]
 
   # http_basic_authenticate_with name: "fahad", password: "password", except: [:index, :show]
@@ -57,10 +57,30 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  def dislike
+    @article = Article.find(params[:id])
+    @like = @article.likes.find_by_user_id(current_user.id)
+    @like.destroy
+  end
+
+  def like
+    @article = Article.find(params[:id])
+    if @article.likes.find_by_user_id(current_user.id) == nil then
+      @like = @article.likes.create(like_params)
+    end
+  end
+
   private
   def article_params
     params.require(:article)[:user_id] = current_user.id
     params.require(:article).permit(:title, :text, :user_id)
+  end
+
+  private
+  def like_params
+    params[:user_id] = current_user.id
+    params[:article_id] = params[:id]
+    params.permit(:article_id, :user_id)
   end
 
 end

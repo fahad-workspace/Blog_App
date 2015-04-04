@@ -4,7 +4,8 @@ p
 p
   strong Text: 
   = @article.text
-= render 'likes/like'
+div id="like_div"
+  = render 'articles/like'
 h2 Comments
 - @article.comments.each do |comment|
   strong Commenter: 
