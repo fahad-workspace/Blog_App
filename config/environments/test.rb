@@ -39,10 +39,10 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  
+
   config.gem "rspec"
   config.gem "rspec-rails"
   config.gem "webrat"
   config.gem "cucumber"
-  
+
 end

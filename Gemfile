@@ -43,23 +43,23 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  
+
   gem 'rspec-rails'
   gem 'rspec'
   gem 'webrat'
   gem 'cucumber'
   gem 'database_cleaner'
-  
+
 end
 
 group :development do
 
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
-  
+
   # Use Capistrano for deployment
   # gem 'capistrano-rails', group: :development
-  
+
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'annotate'
@@ -78,13 +78,13 @@ group :development do
   gem 'reek'
   gem 'request-log-analyzer'
   gem 'smusher'
-  
+
 end
 
 group :production, :test do
-  
+
   gem 'pg'
-  
+
 end
 
 gem 'cucumber-rails', :require => false, group: :test

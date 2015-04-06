@@ -19,11 +19,12 @@ th {
 body {
   padding-top: 70px;
   padding-bottom: 70px;
-  background: image-url("backgrounds.jpeg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background: image-url("bg.jpg");
+  background-repeat: repeat-x-y;
+  //  -webkit-background-size: cover;
+  //  -moz-background-size: cover;
+  //  -o-background-size: cover;
+  //  background-size: cover;
 }
 
 .copyright {
