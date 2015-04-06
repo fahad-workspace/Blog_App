@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+ruby '2.2.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 
@@ -95,3 +97,4 @@ gem 'bootstrap-sass'
 gem 'cancan'
 gem 'rails_admin'
 gem 'rails_config'
+gem 'puma'
