@@ -77,9 +77,11 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  current_ip = (Socket.ip_address_list.detect(&:ipv4_private?).try(:ip_address)).to_s
+  # current_ip = (Socket.ip_address_list.detect(&:ipv4_private?).try(:ip_address)).to_s
 
-  config.action_mailer.default_url_options = {host: current_ip, port: 3000}
+  # config.action_mailer.default_url_options = {host: current_ip, port: 3000}
+
+  config.action_mailer.default_url_options = {:host => 'fahad-blog-site.herokuapp.com'}
 
   # Don't send emails in development
   config.action_mailer.perform_deliveries = true
