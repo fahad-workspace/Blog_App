@@ -40,6 +40,24 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  current_ip = (Socket.ip_address_list.detect(&:ipv4_private?).try(:ip_address)).to_s
+
+  config.action_mailer.default_url_options = {host: current_ip, port: 3000}
+
+  # Don't send emails in development
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.smtp_settings = {
+      :address => "smtp.gmail.com",
+      :port => 587,
+      :user_name => 'fahad.blog.site',
+      :password => '<password>',
+      :authentication => 'plain',
+      :enable_starttls_auto => true}
+
   config.gem "rspec"
   config.gem "rspec-rails"
   config.gem "webrat"
