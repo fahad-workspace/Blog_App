@@ -1,8 +1,26 @@
 - if user_signed_in?
   - if @article.likes.find_by_user_id(current_user.id)
-    = link_to " Dislike", dislike_article_path, method: 'patch', remote: 'true', id: "like_button", class: "glyphicon glyphicon-thumbs-down"
+    = link_to " Dislike", dislike_article_path, method: 'patch', remote: 'true', id: "like_button", class: "glyphicon glyphicon-thumbs-down btn"
   - if !(@article.likes.find_by_user_id(current_user.id))
-    = link_to " Like", like_article_path, method: 'patch', remote: 'true', id: "like_button", class: "glyphicon glyphicon-thumbs-up"
-p
-  strong Total likes:
+    = link_to " Like", like_article_path, method: 'patch', remote: 'true', id: "like_button", class: "glyphicon glyphicon-thumbs-up btn"
+br/
+a.btn data-target="#likeCountModal" data-toggle="modal"
+  strong Total likes: 
   = @article.likes.count
+#likeCountModal.modal.fade aria-hidden="true" aria-labelledby="likeCountModalLabel" role="dialog" tabindex="-1" 
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close aria-hidden="true" data-dismiss="modal" type="button" 
+        h4#likeCountModalLabel.modal-title
+          | Liked by:
+      .modal-body
+        - if @article.likes.count < 1
+          h5 Sorry, no likes! :-(
+        - if @article.likes.count > 0
+          - @article.likes.each do |like|
+            = (User.find(like.user_id)).email
+            br/
+      .modal-footer
+        button.btn.btn-default data-dismiss="modal" type="button" 
+          | Close

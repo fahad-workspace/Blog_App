@@ -60,7 +60,12 @@ class ArticlesController < ApplicationController
   def dislike
     @article = Article.find(params[:id])
     @like = @article.likes.find_by_user_id(current_user.id)
-    @like.destroy
+    if @like != nil then
+      @like.destroy
+    end
+    respond_to do |format|               
+      format.js
+    end 
   end
 
   def like
@@ -68,6 +73,9 @@ class ArticlesController < ApplicationController
     if @article.likes.find_by_user_id(current_user.id) == nil then
       @like = @article.likes.create(like_params)
     end
+    respond_to do |format|               
+      format.js
+    end 
   end
 
   private

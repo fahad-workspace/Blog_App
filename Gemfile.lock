@@ -149,10 +149,6 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     libv8 (3.16.14.7)
-    lol_dba (1.6.4)
-      actionpack (>= 3.0)
-      activerecord (>= 3.0)
-      railties (>= 3.0)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -407,7 +403,6 @@ DEPENDENCIES
   hirb
   jbuilder
   jquery-rails
-  lol_dba
   mailcatcher
   meta_request
   pg

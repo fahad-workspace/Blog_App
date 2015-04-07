@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-ruby '2.2.0'
+ruby '2.2.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
@@ -68,7 +68,6 @@ group :development do
   gem 'bullet'
   gem 'flay'
   gem 'hirb'
-  gem 'lol_dba'
   gem 'mailcatcher'
   gem 'meta_request'
   gem 'pry'
