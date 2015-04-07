@@ -51,6 +51,7 @@ group :development, :test do
   gem 'webrat'
   gem 'cucumber'
   gem 'database_cleaner'
+  gem 'simplecov', :require => false
 
 end
 
@@ -97,3 +98,6 @@ gem 'cancan'
 gem 'rails_admin'
 gem 'rails_config'
 gem 'puma'
+gem 'factory_girl'
+gem 'factory_girl_rails'
+gem 'faker'
