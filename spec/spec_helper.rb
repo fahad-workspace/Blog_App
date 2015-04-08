@@ -1,5 +1,7 @@
 require 'simplecov'
 require 'factory_girl_rails'
+require 'devise'
+require 'support/controller_macros'
 
 SimpleCov.start 'rails'
 
@@ -37,6 +39,9 @@ RSpec.configure do |config|
   end
   
   config.include FactoryGirl::Syntax::Methods
+  
+  config.include Devise::TestHelpers, :type => :controller
+  config.extend ControllerMacros, :type => :controller
 
   # rspec-mocks config goes here. You can use an alternate test double
   # library (such as bogus or mocha) by changing the `mock_with` option here.

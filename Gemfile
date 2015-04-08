@@ -50,7 +50,6 @@ group :development, :test do
   gem 'rspec'
   gem 'webrat'
   gem 'cucumber'
-  gem 'database_cleaner'
   gem 'simplecov', :require => false
 
 end
@@ -101,3 +100,4 @@ gem 'puma'
 gem 'factory_girl'
 gem 'factory_girl_rails'
 gem 'faker'
+gem 'database_cleaner'

@@ -16,11 +16,6 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
-    #  if current_user.id != @article.user_id then
-    #    redirect_to articles_path
-    #  else
-    @article = Article.find(params[:id])
-    #  end
   end
 
   def update
