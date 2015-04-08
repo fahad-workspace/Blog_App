@@ -42,9 +42,9 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
-  
+
   config.include FactoryGirl::Syntax::Methods
-  
+
   config.include Devise::TestHelpers, :type => :controller
   config.extend ControllerMacros, :type => :controller
 
@@ -62,7 +62,7 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
-  
+
   config.include Warden::Test::Helpers
   Warden.test_mode!
 
@@ -82,5 +82,5 @@ RSpec.configure do |config|
       example.run
     end
   end
-  
+
 end

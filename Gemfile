@@ -37,6 +37,9 @@ gem 'sdoc', group: :doc
 
 group :development, :test do
 
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -47,17 +50,18 @@ group :development, :test do
   gem 'spring'
 
   gem 'rspec-rails'
-  gem 'rspec'
-  gem 'webrat'
-  gem 'cucumber'
   gem 'simplecov', :require => false
 
 end
 
-group :development do
+group :test, :production do
 
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  gem 'pg'
+  gem 'puma'
+
+end
+
+group :development do
 
   # Use Capistrano for deployment
   # gem 'capistrano-rails', group: :development
@@ -71,7 +75,6 @@ group :development do
   gem 'mailcatcher'
   gem 'meta_request'
   gem 'pry'
-  gem 'pry-doc'
   gem 'quiet_assets'
   gem 'railroady'
   gem 'rails-footnotes'
@@ -82,22 +85,22 @@ group :development do
 
 end
 
-group :production, :test do
+group :test do
 
-  gem 'pg'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'database_cleaner'
 
 end
 
-gem 'cucumber-rails', :require => false, group: :test
-gem 'rails_12factor', group: :production
+group :production do
+
+  gem 'rails_12factor'
+
+end
+
 gem 'slim-rails'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'cancan'
 gem 'rails_admin'
-gem 'rails_config'
-gem 'puma'
-gem 'factory_girl'
-gem 'factory_girl_rails'
-gem 'faker'
-gem 'database_cleaner'

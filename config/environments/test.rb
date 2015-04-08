@@ -58,9 +58,6 @@ Rails.application.configure do
       :authentication => 'plain',
       :enable_starttls_auto => true}
 
-  config.gem "rspec"
   config.gem "rspec-rails"
-  config.gem "webrat"
-  config.gem "cucumber"
 
 end
