@@ -15,7 +15,8 @@ class Ability
         can :read, :all
       else
         can [:read, :create], :all
-        can [:update, :destroy], Article, Comment, :user_id => user.id
+        can [:update, :destroy], Article, :user_id => user.id
+        can [:update, :destroy], Comment, :user_id => user.id
       end
     end
 

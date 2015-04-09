@@ -12,6 +12,16 @@ describe ArticlesController do
       post :create, article: attributes_for(:article)
       expect(Article.count).to eq(1)
     end
+    
+    it "should have a current_user" do
+      expect(subject.current_user).not_to be_nil
+    end
+    
+    User.destroy_all
+    
+    it "should have a current_user" do
+      expect(subject.current_user).to be_nil
+    end
 
   end
 
