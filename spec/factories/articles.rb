@@ -2,7 +2,7 @@ require 'faker'
 
 FactoryGirl.define do
   factory :article do
-    title 'Test Post'
-    text 'This is a test post!'
+    title { Faker::Lorem.characters(7) }
+    text { Faker::Lorem.sentence }
   end
 end

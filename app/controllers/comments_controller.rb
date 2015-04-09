@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  
+  load_and_authorize_resource
 
   before_filter :authenticate_user!
   load_and_authorize_resource
@@ -16,10 +18,7 @@ class CommentsController < ApplicationController
   def destroy
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
-    @user = User.find(@article.user_id)
-    if @user.id == current_user.id then
-      @comment.destroy
-    end
+    @comment.destroy
     redirect_to article_path(@article)
   end
 

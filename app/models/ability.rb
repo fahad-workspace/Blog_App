@@ -14,7 +14,7 @@ class Ability
       if user.nil?
         can :read, :all
       else
-        can [:read, :create], :all
+        can [:read, :create, :destroy], :all
         can [:update, :destroy], Article, :user_id => user.id
       end
     end
