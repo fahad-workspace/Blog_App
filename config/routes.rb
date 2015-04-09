@@ -14,6 +14,8 @@ Rails.application.routes.draw do
       patch :dislike
     end
   end
+  
+  match '*path' => redirect('/'), via: :get
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
