@@ -11,9 +11,7 @@ class Ability
     if user.admin?
       can :manage, :all
     else
-      if user.nil?
-        can :read, :all
-      else
+      if !(user.nil?)
         can [:read, :create], :all
         can [:update, :destroy], Article, :user_id => user.id
         can [:update, :destroy], Comment, :user_id => user.id

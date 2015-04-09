@@ -12,15 +12,9 @@ describe ArticlesController do
       post :create, article: attributes_for(:article)
       expect(Article.count).to eq(1)
     end
-    
+
     it "should have a current_user" do
       expect(subject.current_user).not_to be_nil
-    end
-    
-    User.destroy_all
-    
-    it "should have a current_user" do
-      expect(subject.current_user).to be_nil
     end
 
   end
@@ -181,6 +175,18 @@ describe ArticlesController do
       expect do
         patch :dislike, {:id => article.to_param, :format => 'js'}
       end.to change(article.likes, :count).by(-1)
+    end
+
+    it "user cannot delete others article" do
+      article = Article.create!(attributes_for(:article))
+      user = subject.current_user
+      sign_out user
+      new_user = FactoryGirl.create(:user)
+      new_user.confirm!
+      sign_in new_user
+      expect do
+        delete :destroy, {:id => article.to_param}
+      end.to change(Article, :count).by(0)
     end
 
   end
