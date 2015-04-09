@@ -55,7 +55,7 @@ RSpec.configure do |config|
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
   end
-  
+
   config.infer_spec_type_from_file_location!
 
 # The settings below are suggested to provide a good initial experience
