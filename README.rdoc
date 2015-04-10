@@ -1,6 +1,6 @@
 == ~~ README ~~
 
-{Heroku Link:}[http://fahad-blog-site.herokuapp.com/]
+{Heroku Link}[fahad-blog-site.herokuapp.com]
 
 Heroku Link: http://fahad-blog-site.herokuapp.com/
 
