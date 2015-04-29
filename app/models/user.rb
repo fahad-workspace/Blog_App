@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
   private
   def set_admin
-    if  User.count == 1
+    if User.count == 1
       User.first.update_attribute(:admin, true)
     else
       return true

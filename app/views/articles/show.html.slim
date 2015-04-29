@@ -9,14 +9,14 @@ div id="like_div"
 h2 Comments
 - @article.comments.each do |comment|
   strong Commenter: 
-  = comment.commenter  
+  = comment.commenter
   br/
   strong Comment: 
   = comment.body
   br/
   - if user_signed_in?
     - if @article.user_id == current_user.id
-      = link_to 'Destroy Comment', [comment.article, comment], method: :delete, data: { confirm: 'Are you sure?' }
+      = link_to 'Destroy Comment', [comment.article, comment], method: :delete, data: {confirm: 'Are you sure?'}
       br/
   br/
 h2 Add a comment:
