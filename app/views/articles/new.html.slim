@@ -1,5 +1,5 @@
 h1 New Article
-= form_for :article, url : articles_path do |f|
+= form_for :article, url: articles_path do |f|
   p
     = f.label :title
     em
@@ -11,7 +11,5 @@ h1 New Article
     br/
     = f.text_area :text
   p
-    = f.submit class
-      : "btn"
-= link_to 'Back', articles_path, class
-  : "btn"
+    = f.submit class: "btn"
+= link_to 'Back', articles_path, class: "btn"

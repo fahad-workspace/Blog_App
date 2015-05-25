@@ -3,7 +3,7 @@ html
   head
     title MyBlogSite
     = favicon_link_tag 'blog.ico'
-    = stylesheet_link_tag 'application', media : 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
@@ -20,17 +20,17 @@ html
         div class="collapse navbar-collapse" id="myNavbar"
           ul class="nav navbar-nav"
             li class="active"
-              = link_to "Home", controller : '/welcome'
+              = link_to "Home", controller: '/welcome'
           - if !(user_signed_in?)
             ul class="nav navbar-nav navbar-right"
               li
-                = link_to " Sign-Up ", {controller : '/devise/registrations', action : 'new'}, class : "glyphicon glyphicon-user"
+                = link_to " Sign-Up ", {controller: '/devise/registrations', action: 'new'}, class: "glyphicon glyphicon-user"
               li
-                = link_to " Login ", {controller : '/devise/sessions', action : 'new'}, class : "glyphicon glyphicon-log-in"
+                = link_to " Login ", {controller: '/devise/sessions', action: 'new'}, class: "glyphicon glyphicon-log-in"
           - if (user_signed_in?)
             ul class="nav navbar-nav navbar-right"
               li
-                = link_to " New-Article ", {controller : '/articles', action : 'new'}, class : "glyphicon glyphicon-comment"
+                = link_to " New-Article ", {controller: '/articles', action: 'new'}, class: "glyphicon glyphicon-comment"
               li
                 = link_to " Logout ", destroy_user_session_path, :method => :delete, class: "glyphicon glyphicon-log-in"
     div class="container"

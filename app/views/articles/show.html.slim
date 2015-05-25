@@ -16,15 +16,13 @@ h2 Comments
   br/
   - if user_signed_in?
     - if @article.user_id == current_user.id
-      = link_to 'Destroy Comment', [comment.article, comment], method : :delete, data : {confirm : 'Are you sure?'}
+      = link_to 'Destroy Comment', [comment.article, comment], method: :delete, data: {confirm: 'Are you sure?'}
       br/
   br/
 h2 Add a comment:
 = render 'comments/form'
 - if user_signed_in?
   - if @article.user_id == current_user.id
-    = link_to 'Edit Article', edit_article_path(@article), class
-      : "btn"
+    = link_to 'Edit Article', edit_article_path(@article), class: "btn"
     = " "
-= link_to 'Back to Articles', articles_path, class
-  : "btn"
+= link_to 'Back to Articles', articles_path, class: "btn"
