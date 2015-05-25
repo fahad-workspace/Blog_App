@@ -57,7 +57,6 @@ end
 group :test, :production do
 
   gem 'pg'
-  gem 'puma'
 
 end
 
@@ -104,3 +103,7 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'cancan'
 gem 'rails_admin'
+gem 'thin'
+gem 'rails_apps_pages'
+gem 'rails_apps_composer'
+gem 'rails_layout'
