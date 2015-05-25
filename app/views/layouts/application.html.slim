@@ -24,19 +24,15 @@ html
           - if !(user_signed_in?)
             ul class="nav navbar-nav navbar-right"
               li
-                = link_to " Sign-Up ", {controller : '/devise/registrations', action : 'new'}, class
-                  : "glyphicon glyphicon-user"
+                = link_to " Sign-Up ", {controller : '/devise/registrations', action : 'new'}, class : "glyphicon glyphicon-user"
               li
-                = link_to " Login ", {controller : '/devise/sessions', action : 'new'}, class
-                  : "glyphicon glyphicon-log-in"
+                = link_to " Login ", {controller : '/devise/sessions', action : 'new'}, class : "glyphicon glyphicon-log-in"
           - if (user_signed_in?)
             ul class="nav navbar-nav navbar-right"
               li
-                = link_to " New-Article ", {controller : '/articles', action : 'new'}, class
-                  : "glyphicon glyphicon-comment"
+                = link_to " New-Article ", {controller : '/articles', action : 'new'}, class : "glyphicon glyphicon-comment"
               li
-                = link_to " Logout ", destroy_user_session_path, :method => :delete, class
-                  : "glyphicon glyphicon-log-in"
+                = link_to " Logout ", destroy_user_session_path, :method => :delete, class: "glyphicon glyphicon-log-in"
     div class="container"
       - if user_signed_in?
         = render 'articles/overlay_top'
