@@ -43,7 +43,7 @@ Rails.application.configure do
 
   # config.action_mailer.default_url_options = {host: current_ip, port: 3000}
 
-  config.action_mailer.default_url_options = {:host => '127.0.0.1', port : 3000}
+  config.action_mailer.default_url_options = {:host => '127.0.0.1', :port => 3000}
 
   # Don't send emails in development
   config.action_mailer.perform_deliveries = false
