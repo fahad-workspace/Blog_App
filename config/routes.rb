@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount RailsAdmin::Engine => '/admin', as : 'rails_admin'
   devise_for :users
   get 'welcome/index'
 
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
-  match '*path' => redirect('/'), via: :get
+  match '*path' => redirect('/'), via : :get
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

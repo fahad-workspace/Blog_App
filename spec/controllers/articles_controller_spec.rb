@@ -9,7 +9,7 @@ describe ArticlesController do
     it 'creates an article' do
       @user = subject.current_user
       @user.admin = false
-      post :create, article: attributes_for(:article)
+      post :create, article : attributes_for(:article)
       expect(Article.count).to eq(1)
     end
 
@@ -38,24 +38,24 @@ describe ArticlesController do
 
       context 'with valid attributes' do
         it 'creates an article' do
-          post :create, article: attributes_for(:article)
+          post :create, article : attributes_for(:article)
           expect(Article.count).to eq(1)
         end
 
         it 'redirects to the "show" action for the new article' do
-          post :create, article: attributes_for(:article)
+          post :create, article : attributes_for(:article)
           expect(response).to redirect_to Article.first
         end
       end
 
       context 'with invalid attributes' do
         it 'does not create an article' do
-          post :create, article: attributes_for(:article, text: nil)
+          post :create, article : attributes_for(:article, text : nil)
           expect(Article.count).to eq(0)
         end
 
         it 're-renders the "new" view' do
-          post :create, article: attributes_for(:article, text: nil)
+          post :create, article : attributes_for(:article, text : nil)
           expect(response).to render_template :new
         end
       end
@@ -91,7 +91,7 @@ describe ArticlesController do
     describe "GET edit" do
       it "updates the requested article" do
         article = Article.create!(attributes_for(:article))
-        get :update, {:id => article.to_param, :article => attributes_for(:article, title: "Title Changed")}
+        get :update, {:id => article.to_param, :article => attributes_for(:article, title : "Title Changed")}
         expect(Article.first.title).to eq("Title Changed")
       end
     end
@@ -99,7 +99,7 @@ describe ArticlesController do
     describe "GET update" do
       it "does not update the requested article if title is blank" do
         article = Article.create!(attributes_for(:article))
-        get :update, {:id => article.to_param, :article => attributes_for(:article, title: nil)}
+        get :update, {:id => article.to_param, :article => attributes_for(:article, title : nil)}
         expect(Article.first.title).to eq(article.title)
       end
     end
@@ -107,31 +107,31 @@ describe ArticlesController do
     describe "GET edit" do
       it "does not update the requested article if title is blank" do
         article = Article.create!(attributes_for(:article))
-        get :edit, {:id => article.to_param, :article => attributes_for(:article, title: nil)}
+        get :edit, {:id => article.to_param, :article => attributes_for(:article, title : nil)}
         expect(response).to render_template :edit
       end
     end
 
     it "Assigns a newly created article" do
-      post :create, article: attributes_for(:article)
+      post :create, article : attributes_for(:article)
       expect(assigns(:article)).to be_a(Article)
       expect(assigns(:article)).to be_persisted
     end
 
     it "Redirects to the created article" do
-      post :create, article: attributes_for(:article)
+      post :create, article : attributes_for(:article)
       expect(response).to redirect_to(Article.last)
     end
 
     it "assigns a newly created but unsaved article with invalid parameters" do
       allow_any_instance_of(Article).to receive(:save).and_return(false)
-      post :create, article: attributes_for(:article, title: nil)
+      post :create, article : attributes_for(:article, title : nil)
       expect(assigns(:article)).to be_a_new(Article)
     end
 
     it "re-renders the 'new' template with invalid parameters" do
       allow_any_instance_of(Article).to receive(:save).and_return(false)
-      post :create, article: attributes_for(:article, title: nil)
+      post :create, article : attributes_for(:article, title : nil)
       expect(response).to render_template("new")
     end
 

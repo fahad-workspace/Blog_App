@@ -16,15 +16,15 @@ describe CommentsController do
     it 'creates a comment' do
       @article = Article.create!(attributes_for(:article))
       expect do
-        post :create, comment: attributes_for(:comment), article_id: @article.id
+        post :create, comment : attributes_for(:comment), article_id : @article.id
       end.to change(Comment, :count).by(1)
     end
 
     it 'destroy a comment' do
       @article = Article.create!(attributes_for(:article))
-      post :create, comment: attributes_for(:comment), article_id: @article.id
+      post :create, comment : attributes_for(:comment), article_id : @article.id
       expect do
-        delete :destroy, {article_id: @article.to_param, id: @article.comments.last}
+        delete :destroy, {article_id : @article.to_param, id : @article.comments.last}
       end.to change(Comment, :count).by(-1)
     end
 
